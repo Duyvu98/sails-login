@@ -1,0 +1,35 @@
+<h2>All For One</h2>
+<form action="/list/add" method="POST">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Title</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Enter email" name="title" value="<%= todolist.title %>" required>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Body</label>
+        <input type="text" name="body" class="form-control" id="exampleInputPassword1" value="<%= todolist.body %>" required>
+    </div>
+    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% todolist.forEach(function(todolist){ %>
+        <tr>
+            <td><%= todolist.title %></td>
+            <td><%= todolist.body %></td>
+            <td><a href="/edit/<%=todolist.id %>">Edit</a>
+                <a href="/list/delete/<%=todolist.id %>">Delete</a>
+            </td>
+        </tr>
+        <%   }); %>
+
+
+    </tbody>
+</table>
